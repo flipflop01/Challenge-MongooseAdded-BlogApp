@@ -9,8 +9,8 @@ const app = express();
 app.use(morgan('common'));
 app.use(express.json());
 
-const { DATABASE_URL, PORT } = require("./config");
-const { BlogPost }	= require("./models"); 
+const {DATABASE_URL, PORT} = require("./config");
+const {BlogPost} = require("./models"); 
 
 app.get("/posts", (req, res) => {
 	BlogPost.find()
@@ -23,7 +23,6 @@ app.get("/posts", (req, res) => {
 	});
 });
 
-//////////////////////////////////////////////
 app.get('/posts/:id', (req, res) => {
   BlogPost
     .findById(req.params.id)
